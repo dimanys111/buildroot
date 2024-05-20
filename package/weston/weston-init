@@ -31,7 +31,7 @@ case "$1" in
 start)
         . /etc/profile
         export HOME=/home/weston
-
+        OPTARGS='--renderer=gl --continue-without-input --config=/home/weston/weston.ini'
         WESTON_USER=weston weston-start $OPTARGS &
         ;;
 

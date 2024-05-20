@@ -183,6 +183,8 @@ define WESTON_INSTALL_INIT_SYSV
 		$(TARGET_DIR)/etc/init.d/S71weston
 	$(INSTALL) -D -m 0755 $(WESTON_PKGDIR)/weston-start \
 		$(TARGET_DIR)/bin/weston-start
+	$(INSTALL) -D -m 0644 $(WESTON_PKGDIR)/weston.ini \
+		$(TARGET_DIR)/home/weston/weston.ini
 endef
 
 define WESTON_USERS
