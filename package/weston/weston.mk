@@ -178,4 +178,15 @@ else
 WESTON_CONF_OPTS += -Ddemo-clients=false
 endif
 
+define WESTON_INSTALL_INIT_SYSV
+	$(INSTALL) -D -m 0755 $(WESTON_PKGDIR)/weston-init \
+		$(TARGET_DIR)/etc/init.d/S71weston
+	$(INSTALL) -D -m 0755 $(WESTON_PKGDIR)/weston-start \
+		$(TARGET_DIR)/bin/weston-start
+endef
+
+define WESTON_USERS
+	weston -1 weston -1 - /home/weston /bin/bash video,seat,input Weston
+endef
+
 $(eval $(meson-package))
